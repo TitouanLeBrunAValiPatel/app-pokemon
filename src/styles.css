@@ -7,7 +7,7 @@ h1, .find-pokemon{
 }
 .flex-pokemon{
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
 }
 
@@ -18,6 +18,8 @@ h1, .find-pokemon{
 }
 .each-pokemon{
     display: flex;
+}
+.box-shadow{
     box-shadow: 2px 7px 7px rgb(177, 177, 177);
 }
 .chip{
@@ -39,7 +41,7 @@ h1, .find-pokemon{
 .poison{background: #b388ff;}
 .fee{background: #f8bbd0;}
 .psy{background: #512da8;}
-.eletrick{background: #f4ff81;}
+.electrik{background: #f4ff81;}
 .combat{background: #ff5722;}
 .grey{background: #9e9e9e;}
 
@@ -53,3 +55,29 @@ h1, .find-pokemon{
     .grid-pokemon{grid-template-columns: repeat(1, 1fr);}
     
 }
+
+/* partie seul */
+
+.flex-pokemon-center-column{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.box-pokemon{
+    width: 70%;
+}
+.detail-pokemon{width: 100%;}
+.line{width: 80%; height: 2px; background: #f2F2F2; margin: auto;}
+.action-pokemon{
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    color: #ff5722;
+    cursor: pointer;
+}
+.box-action-pokemon{text-align: center;}
