@@ -1,0 +1,55 @@
+/* You can add global styles to this file, and also import other style files */
+h1, .find-pokemon{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif ;
+    font-size: 4em;
+    text-align: center;
+
+}
+.flex-pokemon{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.grid-pokemon{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+.each-pokemon{
+    display: flex;
+    box-shadow: 2px 7px 7px rgb(177, 177, 177);
+}
+.chip{
+    display: block;
+    width: 50px;
+    background: #000;
+    text-align: center;
+    border-radius: 20px;
+    margin: 3px;
+    padding: 3px;
+}
+
+.feu{background: #ef5350;}
+.plante{background:#66bb6a}
+.eau{background:#42a5f5}
+.insecte{background: #8d6e63;}
+.normal{background: #eeeeee ;}
+.vol{background: #81d4fa;}
+.poison{background: #b388ff;}
+.fee{background: #f8bbd0;}
+.psy{background: #512da8;}
+.eletrick{background: #f4ff81;}
+.combat{background: #ff5722;}
+.grey{background: #9e9e9e;}
+
+
+
+@media screen and (max-width:1200px){
+    .grid-pokemon{grid-template-columns: repeat(2, 1fr);}
+    
+}
+@media screen and (max-width:800px){
+    .grid-pokemon{grid-template-columns: repeat(1, 1fr);}
+    
+}
