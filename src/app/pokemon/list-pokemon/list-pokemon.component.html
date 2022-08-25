@@ -2,7 +2,7 @@
 Condition ngif = si j'ai un pokemon selectionne (il nest pas undefined)
 <p *ngIf="!pokemonSelected" class="find-pokemon">Aucun pokémon n'a été trouvé.</p> -->
 <div class="grid-pokemon">
-    <div *ngFor="let pokemon of pokemonList" class="each-pokemon box-shadow" appBorderCard >
+    <div *ngFor="let pokemon of pokemonList" class="each-pokemon box-shadow" appBorderCard (click)="goToPokemon(pokemon)">
         <div class="img-pokemon"><!--rajout de la directive appBorderCard et le "appbordercard=red" permet de redefinir la couleur de la bordure -->
         <img [src]="pokemon.picture" [alt]="pokemon.name">
         </div>
@@ -12,5 +12,11 @@ Condition ngif = si j'ai un pokemon selectionne (il nest pas undefined)
             <!--pipes angular par defaut regarder la doc sur internet -->
             <span *ngFor="let type of pokemon.types" class="{{ type | pokemonTypeColor }}">{{type}}</span>
         </div>
+    </div>
+</div>
+<div class="pos-rel">
+
+    <div class="pos-abs">
+        <a   class="add-pokemon" routerLink="/add/pokemon/">+</a>
     </div>
 </div>
