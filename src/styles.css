@@ -21,6 +21,7 @@ h1, .find-pokemon, h2,h4{
 }
 h4{
     font-size: 2em;
+    word-wrap: break-word;
 }
 a{
     text-decoration: none;
@@ -31,7 +32,7 @@ a{
 }
 
 .w100{
-    width: auto;
+    width: 90%;
 }
 .mar-auto{
     margin: 15px auto 0;
@@ -41,6 +42,7 @@ a{
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
 }
 .flex-pokemon-center-column{
     display: flex;
@@ -108,11 +110,20 @@ a{
 
 @media screen and (max-width:1200px){
     .grid-pokemon{grid-template-columns: repeat(2, 1fr);}
+    .box-action-pokemon{
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+
+    }
+    .flex-pokemon{
+
+    }
     
 }
 @media screen and (max-width:800px){
     .grid-pokemon{grid-template-columns: repeat(1, 1fr);}
-    
+
 }
 
 /* partie seul */
@@ -126,7 +137,9 @@ a{
     justify-content: center;
     align-items: center;
 }
-
+td{
+    padding: 10px 0 10px 5px ;
+}
 tr:nth-child(even) {
     background-color: #f2f2f2;
 }

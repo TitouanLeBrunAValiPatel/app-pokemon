@@ -10,7 +10,7 @@ import { AuthService } from '../auth.service';
 })
 export class LoginComponent implements OnInit {
 
-  message:string = 'vous êtes deconnecté(pikachu/pikachu)';
+  message:string = 'Vous êtes deconnecté (pikachu/pikachu)';
   name:string;
   password:string;
   auth: AuthService;
