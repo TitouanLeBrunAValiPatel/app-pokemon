@@ -1,0 +1,28 @@
+<div class="flex-pokemon-center-column">
+    <div class="w100">
+
+        <div class="flex-pokemon-center-column">
+            <h2>Page de connexion</h2>
+            <h4>{{message}}</h4>
+        </div>
+        <form #loginForm="ngForm">
+
+            <div class="flex-pokemon-column box-shadow pad15">
+                <div class="flex-pokemon-column mar-auto box-pokemon">
+        
+                    <label for="name">Name</label>
+                    <input type="text" name="name" id="name" class="border-b-input" [(ngModel)]="name" required="">
+                </div>
+                <div class="flex-pokemon-column mar-auto box-pokemon">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="password" class="border-b-input" [(ngModel)]="password" required>
+                </div>
+                <div class="flex-pokemon-center-column">
+                    <input type="submit" value="Connexion" class="btn-valid" (click)="login()" *ngIf="!auth.isLoggedIn">
+                    <input type="submit" value="Déconnexion" class="btn-valid" (click)="logout()" *ngIf="auth.isLoggedIn">
+
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

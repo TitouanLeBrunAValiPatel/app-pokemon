@@ -95,4 +95,18 @@ addPokemon(pokemon: Pokemon): Observable<Pokemon>{
   ) // similaire a insert 
 }
 
+
+searchPokemonList(term: string) : Observable<Pokemon[]>{
+// si ma recherche est inferieur à 2 letter
+  if(term.length < 2){
+    return of ([]);
+  }
+  return this.http.get<Pokemon[]>(`api/pokemons/?name=${term}`).pipe(
+    tap((response) => this.log(response)),
+    catchError((error) => this.handleError(error, []))
+  );
+
+
+}
+
 }

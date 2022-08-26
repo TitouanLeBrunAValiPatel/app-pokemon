@@ -10,13 +10,15 @@ import { FormsModule } from '@angular/forms';
 import { PokemonFormComponent } from './pokemon-form/pokemon-form.component';
 import { EditPokemonComponent } from './edit-pokemon/edit-pokemon.component';
 import { AddPokemonComponent } from './add-pokemon/add-pokemon.component';
+import { SearchPokemonComponent } from './search-pokemon/search-pokemon.component';
+import { LoaderComponent } from './loader/loader.component';
 
-
+import { AuthGuard } from '../auth.guard';
 const pokemonRoutes: Routes = [
-  {path: 'edit/pokemon/:id', component: EditPokemonComponent },
-  {path: 'add/pokemon', component: AddPokemonComponent},
-  {path: 'pokemons', component: ListPokemonComponent},
-  {path: 'pokemon/:id', component: DetailPokemonComponent} // les : dit à angular que c'est un identifiant que le va recupérer 
+  {path: 'edit/pokemon/:id', component: EditPokemonComponent, canActivate: [AuthGuard] }, // canActive c'est le mode d'authentification et je veux que edit pokemon soit gerer par le guard AuthGuard renvoie true (acces page) ou false 
+  {path: 'add/pokemon', component: AddPokemonComponent, canActivate: [AuthGuard] },
+  {path: 'pokemons', component: ListPokemonComponent, canActivate: [AuthGuard] },
+  {path: 'pokemon/:id', component: DetailPokemonComponent, canActivate: [AuthGuard] } // les : dit à angular que c'est un identifiant que le va recupérer 
 
 ]
 
@@ -28,7 +30,9 @@ const pokemonRoutes: Routes = [
     PokemonTypeColorPipe,
     PokemonFormComponent,
     EditPokemonComponent,
-    AddPokemonComponent
+    AddPokemonComponent,
+    SearchPokemonComponent,
+    LoaderComponent
   ],
   imports: [ // les IMPORTS sont des class exporter deja 
     CommonModule,

@@ -1,0 +1,22 @@
+
+<div class="flex-pokemon-center-column">
+
+    <div class="box-shadow box-pokemon flex-pokemon-center-column">
+        <input type="text"
+            #searchBox
+            placeholder="Rechercher un pokémon"
+            class="border-b-input"
+            (keyup)="search(searchBox.value)"
+            >
+        <div class="line-search"></div>
+        <div class="box-shadow box-pokemon">
+
+            <div class="result-search flex-pokemon-column">
+                <a *ngFor="let pokemon of pokemons$ | async" class="lien-search"
+                (click)="goToDetail(pokemon)"
+                > {{ pokemon.name }}</a> <!-- | async remplace dans le ngonint (    this.pokemons$.subscribe((pokemons: { new(subscribe?: ((this: Observable<Pokemon[]>, subscriber: Subscriber<Pokemon[]>) => TeardownLogic) | undefined): Observable<Pokemon[]>; prototype: Observable<any>; create: (...args: any[]) => any; }) => this.pokemons$ = pokemons)
+                    )-->
+            </div>
+        </div>
+    </div>
+</div>

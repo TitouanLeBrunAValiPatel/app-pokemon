@@ -1,22 +1,30 @@
 <!-- <p *ngIf="pokemonSelected" class="find-pokemon">Vous avez selectionné le pokemon : {{pokemonSelected?.name }}</p>
 Condition ngif = si j'ai un pokemon selectionne (il nest pas undefined)
 <p *ngIf="!pokemonSelected" class="find-pokemon">Aucun pokémon n'a été trouvé.</p> -->
-<div class="grid-pokemon">
-    <div *ngFor="let pokemon of pokemonList" class="each-pokemon box-shadow" appBorderCard (click)="goToPokemon(pokemon)">
-        <div class="img-pokemon"><!--rajout de la directive appBorderCard et le "appbordercard=red" permet de redefinir la couleur de la bordure -->
-        <img [src]="pokemon.picture" [alt]="pokemon.name">
+<app-search-pokemon></app-search-pokemon>
+
+<div *ngIf="pokemonList">
+
+    <div class="grid-pokemon">
+        <div *ngFor="let pokemon of pokemonList" class="each-pokemon box-shadow" appBorderCard (click)="goToPokemon(pokemon)">
+            <div class="img-pokemon"><!--rajout de la directive appBorderCard et le "appbordercard=red" permet de redefinir la couleur de la bordure -->
+            <img [src]="pokemon.picture" [alt]="pokemon.name">
+            </div>
+            <div class="text-pokemon">
+                <p><strong>{{ pokemon.name}}</strong></p>
+                <p><!--pipe date permet un formatage plus elegant --> {{pokemon.created | date:"dd/MM/yyyy" | uppercase }}</p> 
+                <!--pipes angular par defaut regarder la doc sur internet -->
+                <span *ngFor="let type of pokemon.types" class="{{ type | pokemonTypeColor }}">{{type}}</span>
+            </div>
         </div>
-        <div class="text-pokemon">
-            <p><strong>{{ pokemon.name}}</strong></p>
-            <p><!--pipe date permet un formatage plus elegant --> {{pokemon.created | date:"dd/MM/yyyy" | uppercase }}</p> 
-            <!--pipes angular par defaut regarder la doc sur internet -->
-            <span *ngFor="let type of pokemon.types" class="{{ type | pokemonTypeColor }}">{{type}}</span>
+    </div>
+    <div class="pos-rel">
+    
+        <div class="pos-abs">
+            <a   class="add-pokemon" routerLink="/add/pokemon/">+</a>
         </div>
     </div>
 </div>
-<div class="pos-rel">
-
-    <div class="pos-abs">
-        <a   class="add-pokemon" routerLink="/add/pokemon/">+</a>
-    </div>
+<div *ngIf="!pokemonList">
+    <app-loader></app-loader>
 </div>
